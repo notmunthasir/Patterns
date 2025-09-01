@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Pattern Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+    select, input, button {
+      margin: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+    pre {
+      background: #f4f4f4;
+      display: inline-block;
+      padding: 15px;
+      text-align: left;
+      border-radius: 8px;
+      min-width: 120px;
+    }
+  </style>
+</head>
+<body>
+  <h2>⭐ Star Pattern Generator</h2>
+
+  <!-- Pattern Style -->
+  <label for="pattern">Choose Style:</label>
+  <select id="pattern">
+    <option value="left">Left Triangle</option>
+    <option value="right">Right Triangle</option>
+  </select>
+
+  <!-- Number of Lines -->
+  <label for="lines">Lines (max 25):</label>
+  <input type="number" id="lines" min="2" max="25" value="5">
+
+  <button onclick="generatePattern()">Generate</button>
+
+  <h3>Result:</h3>
+  <pre id="result"></pre>
+
+  <script>
+    function generatePattern() {
+      let style = document.getElementById("pattern").value;
+      let lines = parseInt(document.getElementById("lines").value);
+      let output = "";
+
+      if (style === "left") {
+        // LEFT TRIANGLE
+        for (let i = 1; i <= lines; i++) {
+          for (let j = 1; j <= i; j++) {
+            output += "* ";
+          }
+          output += "\n"; // new line
+        }
+      } else if (style === "right") {
+        // RIGHT TRIANGLE
+        for (let i = 1; i <= lines; i++) {
+          // spaces first
+          for (let s = 1; s <= (lines - i); s++) {
+            output += "  ";
+          }
+          // stars after spaces
+          for (let j = 1; j <= i; j++) {
+            output += "* ";
+          }
+          output += "\n"; // new line
+        }
+      }
+
+      document.getElementById("result").textContent = output;
+    }
+  </script>
+</body>
+</html>
