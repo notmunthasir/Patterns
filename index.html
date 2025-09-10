@@ -1,79 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Star Pattern Generator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 40px;
-    }
-    select, input, button {
-      margin: 10px;
-      padding: 8px;
-      font-size: 16px;
-    }
-    pre {
-      background: #f4f4f4;
-      display: inline-block;
-      padding: 15px;
-      text-align: left;
-      border-radius: 8px;
-      min-width: 120px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munthasir's Javascript</title>
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
-  <h2>⭐ Star Pattern Generator</h2>
 
-  <!-- Pattern Style -->
-  <label for="pattern">Choose Style:</label>
-  <select id="pattern">
-    <option value="left">Left Triangle</option>
-    <option value="right">Right Triangle</option>
-  </select>
+    <!-- Floating circles -->
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
 
-  <!-- Number of Lines -->
-  <label for="lines">Lines (max 25):</label>
-  <input type="number" id="lines" min="2" max="25" value="5">
+    <h1>Munthasir's Javascript</h1>
 
-  <button onclick="generatePattern()">Generate</button>
+    <div class="buttons">
+        <button class="btn"><a href="./OTHERS-PAGE/Password Checker/index.html">Password Checker</a></button>
+        <button class="btn"><a href="./OTHERS-PAGE/Star Patterns/index.html">Star Patterns</a></button>
+        <button class="btn"><a href="./OTHERS-PAGE/Simple Calculator/index.html">Simple Calculator</a></button>
+        <button class="btn"><a href="./OTHERS-PAGE/Grade Calculator/index.html">Grade Calculator</a></button>
+        <button class="btn"><a href="./OTHERS-PAGE/Equation Calculator/index.html">Equation Calculator</a></button>
+    </div>
+    <button class="btn coming-soon"><a href="">Coming Soon</a></button>
 
-  <h3>Result:</h3>
-  <pre id="result"></pre>
-
-  <script>
-    function generatePattern() {
-      let style = document.getElementById("pattern").value;
-      let lines = parseInt(document.getElementById("lines").value);
-      let output = "";
-
-      if (style === "left") {
-        // LEFT TRIANGLE
-        for (let i = 1; i <= lines; i++) {
-          for (let j = 1; j <= i; j++) {
-            output += "* ";
-          }
-          output += "\n"; // new line
-        }
-      } else if (style === "right") {
-        // RIGHT TRIANGLE
-        for (let i = 1; i <= lines; i++) {
-          // spaces first
-          for (let s = 1; s <= (lines - i); s++) {
-            output += "  ";
-          }
-          // stars after spaces
-          for (let j = 1; j <= i; j++) {
-            output += "* ";
-          }
-          output += "\n"; // new line
-        }
-      }
-
-      document.getElementById("result").textContent = output;
-    }
-  </script>
 </body>
 </html>
