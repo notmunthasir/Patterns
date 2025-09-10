@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Pattern Generator</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+  <!-- Floating circles -->
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+  <div class="circle circle4"></div>
+
+  <section class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card star-card p-4 shadow">
+      <h2>⭐ Star Pattern Generator</h2>
+
+      <div class="form-group">
+        <label for="pattern">Choose Style:</label>
+        <select id="pattern">
+          <option value="left">Left Triangle</option>
+          <option value="right">Right Triangle</option>
+          <option value="downLeft">Downward Left Triangle</option>
+          <option value="downRight">Downward Right Triangle</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="lines">Lines (max 25):</label>
+        <input type="number" id="lines" min="2" max="25" value="5">
+      </div>
+
+      <button id="generateBtn">Generate</button>
+
+      <h3>Result:</h3>
+      <pre id="result"></pre>
+    </div>
+  </section>
+
+  <script src="./JS/play.js"></script>
+</body>
+</html>

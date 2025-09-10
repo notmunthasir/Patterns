@@ -1,0 +1,107 @@
+/* Body and background */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Glassmorphic Card */
+.star-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: translateY(-50px) scale(0.9);
+  animation: openCard 1s forwards;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Card opening animation */
+@keyframes openCard {
+  0% { opacity: 0; transform: translateY(-50px) scale(0.9);}
+  50% { opacity: 0.6; transform: translateY(-20px) scale(1.02);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+/* Form elements hover effect */
+input.form-control, select.form-select {
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+input.form-control:focus, select.form-select:focus {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.03);
+  outline: none;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* Button style */
+button.btn-primary {
+  border-radius: 12px;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+button.btn-primary:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* Result box */
+pre#result {
+  background: rgba(255,255,255,0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: left;
+  margin-top: 1rem;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1s forwards;
+  opacity: 0;
+}
+
+/* Result fade-in */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Floating circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  z-index: -1;
+  animation-iteration-count: infinite;
+}
+
+.circle1 { width: 120px; height: 120px; top: 10%; left: 15%; background: linear-gradient(135deg, #00c6ff, #0072ff); animation: float1 14s linear infinite; }
+.circle2 { width: 150px; height: 150px; top: 70%; left: 10%; background: linear-gradient(135deg, #ff4b2b, #ff416c); animation: float2 18s linear infinite; }
+.circle3 { width: 100px; height: 100px; top: 50%; left: 80%; background: linear-gradient(135deg, #43e97b, #38f9d7); animation: float3 12s linear infinite; }
+.circle4 { width: 140px; height: 140px; top: 30%; left: 60%; background: linear-gradient(135deg, #a18cd1, #fbc2eb); animation: float4 20s linear infinite; }
+
+@keyframes float1 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(-150px) translateX(100px);} 100% { transform: translateY(0) translateX(0);} }
+@keyframes float2 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(-200px) translateX(-150px);} 100% { transform: translateY(0) translateX(0);} }
+@keyframes float3 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(100px) translateX(-100px);} 100% { transform: translateY(0) translateX(0);} }
+@keyframes float4 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(-180px) translateX(80px);} 100% { transform: translateY(0) translateX(0);} }
+
+/* Headings color */
+h2, h3, label {
+  color: #fff;
+}

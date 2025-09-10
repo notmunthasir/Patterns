@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Floating circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.5;
+      z-index: -1;
+      animation-iteration-count: infinite;
+    }
+    .circle1 { width: 120px; height: 120px; top: 10%; left: 15%; background: rgba(255,255,255,0.3); animation: float1 14s linear infinite; }
+    .circle2 { width: 150px; height: 150px; top: 70%; left: 10%; background: rgba(255,255,255,0.25); animation: float2 18s linear infinite; }
+    .circle3 { width: 100px; height: 100px; top: 50%; left: 80%; background: rgba(255,255,255,0.3); animation: float3 12s linear infinite; }
+    .circle4 { width: 140px; height: 140px; top: 30%; left: 60%; background: rgba(255,255,255,0.2); animation: float4 20s linear infinite; }
+
+    @keyframes float1 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(-150px) translateX(100px);} 100% { transform: translateY(0) translateX(0);} }
+    @keyframes float2 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(-200px) translateX(-150px);} 100% { transform: translateY(0) translateX(0);} }
+    @keyframes float3 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(100px) translateX(-100px);} 100% { transform: translateY(0) translateX(0);} }
+    @keyframes float4 { 0% { transform: translateY(0) translateX(0);} 50% { transform: translateY(-180px) translateX(80px);} 100% { transform: translateY(0) translateX(0);} }
+
+    .calculator {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 350px;
+      position: relative;
+      z-index: 1;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    select, input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    select:focus, input:focus {
+      border-color: #6a5acd;
+      outline: none;
+    }
+    button {
+      width: 95%;
+      padding: 12px;
+      background: #6a5acd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #5941a9;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating circles -->
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+  <div class="circle circle4"></div>
+
+  <div class="calculator">
+    <h2>📘 Grade Calculator</h2>
+
+    <!-- Option: GPA or CGPA -->
+    <select id="type">
+      <option value="GPA">GPA</option>
+      <option value="CGPA">CGPA</option>
+    </select>
+
+    <!-- Input box -->
+    <input type="number" id="marks" min="0" max="100" placeholder="Enter your marks (0-100)">
+    
+    <!-- Button -->
+    <button onclick="calculateGrade()">Check Grade</button>
+
+    <!-- Result -->
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateGrade() {
+      let marks = Number(document.getElementById("marks").value);
+      let type = document.getElementById("type").value;
+      let grade = "";
+
+      if (marks < 0 || marks > 100 || isNaN(marks)) {
+        grade = "❌ Please enter a number between 0 and 100.";
+      } else if (type === "GPA") {
+        if (marks >= 80) grade = "4.0";
+        else if (marks >= 70) grade = "3.5";
+        else if (marks >= 60) grade = "3.0";
+        else if (marks >= 50) grade = "2.5";
+        else if (marks >= 40) grade = "2.0";
+        else grade = "0.0";
+      } else {
+        if (marks >= 80) grade = "9.5-10";
+        else if (marks >= 70) grade = "8.0-9.4";
+        else if (marks >= 60) grade = "7.0-7.9";
+        else if (marks >= 50) grade = "6.0-6.9";
+        else if (marks >= 40) grade = "5.0-5.9";
+        else grade = "0-4.9";
+      }
+
+      document.getElementById("result").innerText = type + ": " + grade;
+    }
+  </script>
+</body>
+</html>
