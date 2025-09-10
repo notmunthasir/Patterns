@@ -1,1 +1,1 @@
-# Patterns
+# I am Learning Javascript 
